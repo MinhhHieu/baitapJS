@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="frm_grade" action="#" method="post">
+        <label>Input student name: </label>
+        <input type="text" name="txt_name" value="" />
+        <br/>
+        <label>Input Score: </label>
+        <input type="text" name="txt_score" value="" />
+        <input type="button" name="btn_grade" onclick="grade(document.frm_grade.txt_score.value, document.frm_grade.txt_name.value)" value="Define Grade" />
+    </form>
+    <div id="str_grade">&nbsp;</div>
+    <script type="text/javascript">
+        function grade(score, name) {
+            var string_grade;
+            if (score >= 0 && score <= 100) {
+                if (score > 90) {
+                    string_grade = 'Excellence';
+                } else if (score > 80) {
+                    string_grade = 'Very good';
+                } else if (score > 60) {
+                    string_grade = 'Fair';
+                } else if (score > 50) {
+                    string_grade = 'Medium';
+                } else {
+                    string_grade = 'Fail';
+                }
+            } else {
+                string_grade = 'Score must be between 0 and 100';
+            }
+            document.getElementById('str_grade').innerHTML = name + "'s grade is <b>" + string_grade + '</b>';
+        }
+    </script>
+</body>
+</html>
